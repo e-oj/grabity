@@ -1,0 +1,14 @@
+{
+  "name": "grabity",
+  "version": "0.0.0",
+  "description": "Utility for grabbing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Emmanuel Olaojo",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "11.3.0"
+  }
+}
