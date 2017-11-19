@@ -54,9 +54,44 @@ let grabity = require("grabity");
 
 result:
 ```
-{ title: 'Flickr, a Yahoo company',
+{ 
+  title: 'Flickr, a Yahoo company',
   description: 'Flickr is almost certainly the best online photo management and sharing application in the world. Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone.',
   image: 'https://farm4.staticflickr.com/3914/15118079089_489aa62638_b.jpg' 
 }
 ```
+  
+### grabity.grab(url): Gets all [og] + [twitter] tags and their values
+ > url (required): url to be used
+ 
+ > returns: object containing all found [og] + [twitter] tags and values 
+ 
+ Gets all existing [og] and [twitter] twitter tags from the markup and returns them in an object.
+ 
+```javascript
+let grabity = require("grabity");
+ 
+(async () => {
+  let tags = await grabity.grab("https://www.flickr.com");
+  
+  console.log(tags);
+})();
+```  
 
+result:
+```
+{ 
+  'og:site_name': 'Flickr',
+  'og:updated_time': '2017-11-19T21:29:36.577Z',
+  'og:title': 'Flickr, a Yahoo company',
+  'og:type': 'website',
+  'og:description': 'Flickr is almost certainly the best online photo management and sharing application in the world. Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone.',
+  'og:image': 'https://farm4.staticflickr.com/3914/15118079089_489aa62638_b.jpg',
+  'twitter:card': 'summary_large_image',
+  'twitter:creator': '@flickr',
+  'twitter:title': 'Flickr, a Yahoo company',
+  'twitter:description': 'Flickr is almost certainly the best online photo management and sharing application in the world. Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone.',
+  'twitter:image:src': 'https://farm4.staticflickr.com/3914/15118079089_489aa62638_b.jpg' 
+}
+
+```
