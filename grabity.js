@@ -30,5 +30,5 @@ exports.grab = async (url) => {
 };
 
 (async () => {
-  console.log(await exports.grabIt("http://localhost:9973/test"));
+  console.log(await exports.grab("http://localhost:9973/test"));
 })();
