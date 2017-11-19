@@ -10,13 +10,13 @@ let grabity = require("grabity");
   let it = await grabity.grabIt("https://github.com/e-oj/grabity");
   
   console.log(it);
-  /*
+})();
+/*
   { 
     title: 'e-oj/grabity',
     description: 'grabity - Gets preview data from a link. Just grab it!',
     image: 'https://avatars0.githubusercontent.com/u/9700116?s=400&v=4' 
   }
   */
-})();
 ```
 
