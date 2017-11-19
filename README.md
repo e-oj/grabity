@@ -3,7 +3,10 @@
 # grabity
 ## Get preview data from a link. Just grab it!
 
-Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup) markup to get Information about a link. It's functions will return as much data as they can from the markup. If no "og:" or "twitter:" tags are found, the returned objects will be empty.  
+[og]: <https://docs.mongodb.com/manual/core/gridfs/>
+[twitter]: <https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup>
+
+Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup) markup to get Information about a link. It's functions will return as much data as they can from the markup. If no [og] or [twitter] tags are found, the returned objects will be empty.  
 
 ## Getting Started: 
 ```
@@ -36,6 +39,8 @@ Should produce:
  > url (required): url to be used
  
  > returns: object containing title, description and image if found 
+ 
+ Gets the [og] or [twitter] title, description and image from a url and returns them in an object. If [og] and [twitter] tags exist for a property, the [og] tag is given preference. The [twitter] tag is selected if an [og] tag does not exist for a property. If there is no tag ([og] or [twitter]) for a property, that property is not included in the returned object.
  
  ```javascript
 let grabity = require("grabity");
