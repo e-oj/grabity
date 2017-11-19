@@ -5,7 +5,7 @@
 
 let utils = require("./utils");
 
-exports.grabit = async (url) => {
+exports.grabIt = async (url) => {
   try{
     let {og, twitter} = await utils.grabInfo(url);
     let props = ["title", "description", "image"];
@@ -30,5 +30,5 @@ exports.grab = async (url) => {
 };
 
 (async () => {
-  console.log(await exports.grab("https://github.com/e-oj/Fawn"));
+  console.log(await exports.grabIt("http://localhost:9973/test"));
 })();
