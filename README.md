@@ -17,6 +17,6 @@ let grabity = require("grabity");
     description: 'grabity - Gets preview data from a link. Just grab it!',
     image: 'https://avatars0.githubusercontent.com/u/9700116?s=400&v=4' 
   }
-  */
+*/
 ```
 
