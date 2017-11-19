@@ -37,5 +37,21 @@ Should produce:
  
  > returns: object containing title, description and image if found 
  
+ ```javascript
+let grabity = require("grabity");
  
+(async () => {
+  let it = await grabity.grabIt("https://www.flickr.com");
+  
+  console.log(it);
+})();
+```  
+
+result:
+```
+{ title: 'Flickr, a Yahoo company',
+  description: 'Flickr is almost certainly the best online photo management and sharing application in the world. Show off your favorite photos and videos to the world, securely and privately show content to your friends and family, or blog the photos and videos you take with a cameraphone.',
+  image: 'https://farm4.staticflickr.com/3914/15118079089_489aa62638_b.jpg' 
+}
+```
 
