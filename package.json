@@ -1,12 +1,22 @@
 {
   "name": "grabity",
   "version": "0.0.0",
-  "description": "Utility for grabbing",
+  "description": "Get preview data from a link. Just grab it.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
     , "test-server": "node ./test_setup/server"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e-oj/grabity"
+  },
+  "keywords": [
+    "link preview",
+    "url preview",
+    "link",
+    "url"
+  ],
   "author": "Emmanuel Olaojo",
   "license": "MIT",
   "dependencies": {
