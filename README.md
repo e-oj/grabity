@@ -22,7 +22,7 @@ let grabity = require("grabity");
 })();
 ```  
 
-"it" would be:
+Should produce:
 ```
 { 
   title: 'e-oj/grabity',
