@@ -1,1 +1,1 @@
-# grabity
+[![Travis](https://img.shields.io/travis/e-oj/grabity.svg?style=flat-square)](https://travis-ci.org/e-oj/grabity)
