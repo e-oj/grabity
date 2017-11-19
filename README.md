@@ -29,3 +29,11 @@ Should produce:
   image: 'https://avatars0.githubusercontent.com/u/9700116?s=400&v=4' 
 }
 ```
+
+## API
+
+#### grabity.grabit(url): Gets a title, description and image from a url
+ > url (required): url to be used
+ 
+ > returns: object containing title, description and image if found 
+
