@@ -12,6 +12,7 @@ Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://d
 ```
 npm install grabity
 ```
+
 ## Usage:
 It's really quite simple:
 ```javascript
@@ -60,7 +61,7 @@ result:
   image: 'https://farm4.staticflickr.com/3914/15118079089_489aa62638_b.jpg' 
 }
 ```
-  
+
 ### grabity.grab(url): Gets all [og] + [twitter] tags and their values
  > url (required): url to be used
  
@@ -94,4 +95,16 @@ result:
   'twitter:image:src': 'https://farm4.staticflickr.com/3914/15118079089_489aa62638_b.jpg' 
 }
 
+```
+<br>
+
+## Test
+To test this module, cd to the project directory and run:
+```
+npm run-script test-server
+```
+
+then in a seperate terminal:
+```
+npm test
 ```
