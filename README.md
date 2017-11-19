@@ -108,3 +108,4 @@ then in a seperate terminal:
 ```
 npm test
 ```
+*Note: The test server runs on port 9973 by default. You can change the port number in test_setup/config.js*
