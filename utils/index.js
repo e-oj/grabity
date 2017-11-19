@@ -10,7 +10,14 @@ const OG_PROP = "property";
 const TWITTER_PROP = "name";
 const CONTENT = "content";
 
-
+/**
+ * Gets og/twitter title, description, image
+ * from a url
+ *
+ * @param url the url
+ *
+ * @returns {Promise.<{og: {}, twitter: {}}>}
+ */
 exports.grabInfo = async (url) => {
   let og = {};
   let twitter = {};
@@ -32,6 +39,14 @@ exports.grabInfo = async (url) => {
   }
 };
 
+/**
+ * Gets all Open Graph and Twitter Card
+ * properties from a url
+ *
+ * @param url the url
+ *
+ * @returns {Promise.<*>}
+ */
 exports.grabAll = async (url) => {
   let res = {};
 
@@ -52,6 +67,14 @@ exports.grabAll = async (url) => {
   }
 };
 
+/**
+ * Filter for all og and twitter properties
+ * in a meta tag
+ *
+ * @param meta the meta dom element
+ * @param prefix "og:" or "twitter:"
+ * @param resObj properties attached here
+ */
 function filterAll(meta, prefix, resObj){
   let prop = prefix === "og:" ? OG_PROP : TWITTER_PROP;
 
@@ -64,6 +87,14 @@ function filterAll(meta, prefix, resObj){
   }
 }
 
+/**
+ * Filter for og/twitter title, image, and
+ * description properties in a meta tag
+ *
+ * @param meta the meta dom element
+ * @param _prop OG_PROP or TWITTER_PROP
+ * @param resObj properties attached here
+ */
 function filterInfo(meta, _prop, resObj){
   if(!meta.hasAttribute(_prop)) return;
 
