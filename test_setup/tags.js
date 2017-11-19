@@ -6,7 +6,7 @@
 exports["og:title"] = "The Rock";
 exports["og:type"] = "video.movie";
 exports["og:url"] = "http://www.imdb.com/title/tt0117500/";
-exports["og:image"] = "http://ia.media-imdb.com/images/rock.jpg";
+exports["og:description"] = "Dwayne Johnson?";
 
 exports["twitter:card"] = "summary";
 exports["twitter:site"] = "@flickr";

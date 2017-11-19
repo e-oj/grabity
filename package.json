@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha"
+    , "test-server": "node ./test_setup/server"
   },
   "author": "Emmanuel Olaojo",
   "license": "MIT",

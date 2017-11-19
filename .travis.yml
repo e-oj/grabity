@@ -1,0 +1,10 @@
+language: node_js
+
+node_js:
+  - "node"
+  - "8"
+
+script:
+  - npm run-script test-server &
+  - sleep 5
+  - npm test

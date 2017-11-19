@@ -21,8 +21,8 @@ exports.grabInfo = async (url) => {
     let elems = doc.getElementsByTagName("meta");
 
     for(let meta of elems){
-      filter(meta, OG_PROP, og);
-      filter(meta, TWITTER_PROP, twitter);
+      filterInfo(meta, OG_PROP, og);
+      filterInfo(meta, TWITTER_PROP, twitter);
     }
 
     return {og, twitter};
@@ -39,23 +39,10 @@ exports.grabAll = async (url) => {
     let dom = await JSDOM.fromURL(url);
     let doc = dom.window.document;
     let elems = doc.getElementsByTagName("meta");
-    let value;
 
     for(let meta of elems){
-      if(meta.hasAttribute(OG_PROP)){
-        value = meta.getAttribute(OG_PROP);
-
-        if(value.startsWith("og:")){
-          res[value] = meta.getAttribute(CONTENT);
-        }
-      }
-      else if(meta.hasAttribute(TWITTER_PROP)){
-        value = meta.getAttribute(TWITTER_PROP);
-
-        if(value.startsWith("twitter:")){
-          res[value] = meta.getAttribute(CONTENT);
-        }
-      }
+      filterAll(meta, "og:", res);
+      filterAll(meta, "twitter:", res);
     }
 
     return res;
@@ -65,7 +52,19 @@ exports.grabAll = async (url) => {
   }
 };
 
-function filter(meta, _prop, resObj){
+function filterAll(meta, prefix, resObj){
+  let prop = prefix === "og:" ? OG_PROP : TWITTER_PROP;
+
+  if(meta.hasAttribute(prop)){
+    let tag = meta.getAttribute(prop);
+
+    if(tag.startsWith(prefix)){
+      resObj[tag] = meta.getAttribute(CONTENT);
+    }
+  }
+}
+
+function filterInfo(meta, _prop, resObj){
   if(!meta.hasAttribute(_prop)) return;
 
   let prop = meta.getAttribute(_prop);
