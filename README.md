@@ -3,10 +3,10 @@
 # grabity
 ## Get preview data from a link. Just grab it!
 
-Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup) markup to get Information about a link. It's functions will return as much data as they can, from the markup. If no "og:" or "twitter:" tags are found, the returned objects will be empty.  
+Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup) markup to get Information about a link. It's functions will return as much data as they can from the markup. If no "og:" or "twitter:" tags are found, the returned objects will be empty.  
 
 ## Getting Started: 
-First, install grabity
+Install grabity
 ```
 npm install grabity
 ```
@@ -22,7 +22,7 @@ let grabity = require("grabity");
 })();
 ```  
 
-The result would be:
+"it" would be:
 ```
 { 
   title: 'e-oj/grabity',
