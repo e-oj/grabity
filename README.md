@@ -67,7 +67,7 @@ result:
  
  > returns: object containing all found [og] + [twitter] tags and values 
  
- Gets all existing [og] and [twitter] twitter tags from the markup and returns them in an object.
+ Gets all existing [og] and [twitter] tags from the markup and returns them in an object.
  
 ```javascript
 let grabity = require("grabity");
