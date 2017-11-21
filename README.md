@@ -1,7 +1,7 @@
 ## [![Travis](https://img.shields.io/travis/e-oj/grabity.svg?style=flat-square)](https://travis-ci.org/e-oj/grabity) [![npm](https://img.shields.io/npm/l/grabity.svg?style=flat-square)](https://www.npmjs.com/package/grabity) [![npm](https://img.shields.io/npm/v/grabity.svg?style=flat-square)](https://www.npmjs.com/package/grabity)
 
 # grabity
-## Get preview data from a link. Just grab it!
+## Get preview data from a link. Just grab it! :fishing_pole_and_fish:
 
 [og]: <https://docs.mongodb.com/manual/core/gridfs/>
 [twitter]: <https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup>
