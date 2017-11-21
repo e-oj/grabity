@@ -29,7 +29,7 @@ Should produce:
 ```
 { 
   title: 'e-oj/grabity',
-  description: 'grabity - Gets preview data from a link. Just grab it!',
+  description: 'grabity - Get preview data from a link. Just grab it! :fishing_pole_and_fish:',
   image: 'https://avatars0.githubusercontent.com/u/9700116?s=400&v=4' 
 }
 ```
