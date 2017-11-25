@@ -54,7 +54,7 @@ exports.grabAll = async (url) => {
   let res = {};
 
   try {
-    let dom = await JSDOM.fromURL(url);
+    let dom = await JSDOM.fromURL(url, {virtualConsole});
     let doc = dom.window.document;
     let elems = doc.getElementsByTagName("meta");
 
