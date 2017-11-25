@@ -5,10 +5,13 @@
 
 let jsdom = require("jsdom");
 const {JSDOM} = jsdom;
+const virtualConsole = new jsdom.VirtualConsole();
 
 const OG_PROP = "property";
 const TWITTER_PROP = "name";
 const CONTENT = "content";
+
+virtualConsole.sendTo(console, {omitJSDOMErrors: true});
 
 /**
  * Gets og/twitter title, description, image
@@ -23,7 +26,7 @@ exports.grabInfo = async (url) => {
   let twitter = {};
 
   try{
-    let dom = await JSDOM.fromURL(url);
+    let dom = await JSDOM.fromURL(url, {virtualConsole});
     let doc = dom.window.document;
     let elems = doc.getElementsByTagName("meta");
 
@@ -110,4 +113,3 @@ function filterInfo(meta, _prop, resObj){
     resObj[prop.split(":")[1]] = meta.getAttribute(CONTENT);
   }
 }
-
