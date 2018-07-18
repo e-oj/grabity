@@ -28,14 +28,23 @@ exports.grabInfo = async (url) => {
   try{
     let dom = await JSDOM.fromURL(url, {virtualConsole});
     let doc = dom.window.document;
-    let elems = doc.getElementsByTagName("meta");
+    let metaEls = doc.getElementsByTagName("meta");
+    let linkEls = doc.getElementsByTagName("link");
 
-    for(let meta of elems){
+    for(let meta of metaEls){
       filterInfo(meta, OG_PROP, og);
       filterInfo(meta, TWITTER_PROP, twitter);
     }
 
-    return {og, twitter};
+    let favicon;
+
+    for(let link of linkEls){
+      if (link.rel === 'icon' && link.href){
+        favicon = link.href;
+      }
+    }
+
+    return {og, twitter, favicon};
   }
   catch(err){
     throw err;
@@ -56,11 +65,18 @@ exports.grabAll = async (url) => {
   try {
     let dom = await JSDOM.fromURL(url, {virtualConsole});
     let doc = dom.window.document;
-    let elems = doc.getElementsByTagName("meta");
+    let metaEls = doc.getElementsByTagName("meta");
+    let linkEls = doc.getElementsByTagName("link");
 
-    for(let meta of elems){
+    for(let meta of metaEls){
       filterAll(meta, "og:", res);
       filterAll(meta, "twitter:", res);
+    }
+
+    for(let link of linkEls){
+      if (link.rel === 'icon' && link.href){
+        res.favicon = link.href;
+      }
     }
 
     return res;
