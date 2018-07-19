@@ -36,13 +36,7 @@ exports.grabInfo = async (url) => {
       filterInfo(meta, TWITTER_PROP, twitter);
     }
 
-    let favicon;
-
-    for(let link of linkEls){
-      if (link.rel === 'icon' && link.href){
-        favicon = link.href;
-      }
-    }
+    let favicon = findFavicon(linkEls);
 
     return {og, twitter, favicon};
   }
@@ -73,11 +67,7 @@ exports.grabAll = async (url) => {
       filterAll(meta, "twitter:", res);
     }
 
-    for(let link of linkEls){
-      if (link.rel === 'icon' && link.href){
-        res.favicon = link.href;
-      }
-    }
+    res.favicon = findFavicon(linkEls);
 
     return res;
   }
@@ -85,6 +75,43 @@ exports.grabAll = async (url) => {
     throw err;
   }
 };
+
+/**
+ * Try to find a valid favicon from all of the dom's links
+ *
+ * @param links an array of dom 'link' elements
+ * @returns the href of the favicon, if found
+ */
+function findFavicon(links){
+  let favicon = '';
+
+  // Prioritise links with rel of 'icon'
+  for(let link of links){
+    if (link.rel === 'icon' && link.href){
+      favicon = link.href;
+    }
+  }
+
+  // Check links with rel including 'icon'
+  if (!favicon) {
+    for(let link of links){
+      if (link.rel.includes('icon') && link.href){
+        favicon = link.href;
+      }
+    }
+  }
+
+  // Check links with href containing 'favicon'
+  if (!favicon) {
+    for(let link of links){
+      if (link.href.includes('favicon')){
+        favicon = link.href;
+      }
+    }
+  }
+
+  return favicon
+}
 
 /**
  * Filter for all og and twitter properties
