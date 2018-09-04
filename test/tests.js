@@ -17,6 +17,7 @@ describe("grabity", () => {
     it("should return title, description, image, and favicon", async () => {
       let it = await grabity.grabIt(URL);
 
+      expect(it.published_time).to.equal(tags["article:published_time"]);
       expect(it.title).to.equal(tags["og:title"]);
       expect(it.description).to.equal(tags["og:description"]);
       expect(it.image).to.equal(tags["twitter:image"]);
