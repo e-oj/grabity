@@ -7,18 +7,7 @@
     "test": "mocha",
     "test-server": "node ./test_setup/server"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/e-oj/grabity"
-  },
-  "keywords": [
-    "open graph",
-    "twitter cards",
-    "link preview",
-    "url preview",
-    "link",
-    "url"
-  ],
+  "repository": "git@github.com:tracemeinc/grabity.git",
   "author": "Emmanuel Olaojo",
   "license": "MIT",
   "dependencies": {
