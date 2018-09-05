@@ -71,6 +71,7 @@ exports.grabAll = async (url) => {
     for(let meta of metaEls){
       filterAll(meta, "og:", res);
       filterAll(meta, "twitter:", res);
+      filterAll(meta, "article:", res)
     }
 
     for(let link of linkEls){
@@ -95,7 +96,7 @@ exports.grabAll = async (url) => {
  * @param resObj properties attached here
  */
 function filterAll(meta, prefix, resObj){
-  let prop = prefix === "og:" ? OG_PROP : TWITTER_PROP;
+  let prop = (prefix === "og:" || prefix === "article:") ? OG_PROP : TWITTER_PROP;
 
   if(meta.hasAttribute(prop)){
     let tag = meta.getAttribute(prop);
@@ -118,7 +119,7 @@ function filterInfo(meta, _prop, resObj){
   if(!meta.hasAttribute(_prop)) return;
 
   let prop = meta.getAttribute(_prop);
-  let ogTags = ["og:title", "og:description", "og:image"];
+  let ogTags = ["og:title", "og:description", "og:image", "article:published_time"];
   let twitterTags = ["twitter:title", "twitter:description", "twitter:image"];
   let tags = _prop === OG_PROP ? ogTags : twitterTags;
 
