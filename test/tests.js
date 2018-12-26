@@ -25,7 +25,7 @@ describe("grabity", () => {
   });
 
   describe("#grab", () => {
-    it("should return all 'twitter:' and 'og:' tags, as well as favicon", async () => {
+    it("should return all 'twitter:' and 'og:' tags, favicon, default title tag and meta description", async () => {
       let it = await grabity.grab(URL);
       let keys = Object.keys(tags);
 
