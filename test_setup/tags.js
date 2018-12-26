@@ -13,3 +13,6 @@ exports["twitter:site"] = "@flickr";
 exports["twitter:title"] = "Small Island Developing States Photo Submission";
 exports["twitter:description"] = "View the album on Flickr.";
 exports["twitter:image"] = "https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg";
+
+exports["title"] = "YE OLDE TEST FILE";
+exports["description"] = "This is a meta description";
