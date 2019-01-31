@@ -6,7 +6,7 @@
 [og]: <http://ogp.me/>
 [twitter]: <https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup>
 
-Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup) markup to get Information about a link. Its functions will return as much data as they can from the markup. If no [og] or [twitter] tags are found, the returned objects will be empty.
+Grabity looks through [Open Graph](http://ogp.me/) and [Twitter Cards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup) markup to get Information about a link. Its functions will return as much data as they can from the markup. If no [og] or [twitter] tags are found, it will default to the content of the <title> tag and meta description, and if either the title tag or meta description is missing, the returned property will be empty.
 
 ## Getting Started:
 ```

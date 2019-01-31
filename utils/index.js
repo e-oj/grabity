@@ -24,12 +24,23 @@ virtualConsole.sendTo(console, {omitJSDOMErrors: true});
 exports.grabInfo = async (url) => {
   let og = {};
   let twitter = {};
+  let defaults = {};
 
   try{
     let dom = await JSDOM.fromURL(url, {virtualConsole});
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
+    let titleTag = doc.getElementsByTagName("title");
+    let metaDescTag = doc.querySelector("meta[name='description']");
+
+    if(titleTag.length){
+      defaults.title = titleTag[0].textContent;
+    }
+
+    if(metaDescTag){
+      defaults.description = metaDescTag.content;
+    }
 
     for(let meta of metaEls){
       filterInfo(meta, OG_PROP, og);
@@ -38,7 +49,7 @@ exports.grabInfo = async (url) => {
 
     let favicon = findFavicon(linkEls);
 
-    return {og, twitter, favicon};
+    return {og, twitter, favicon, defaults};
   }
   catch(err){
     throw err;
@@ -61,12 +72,22 @@ exports.grabAll = async (url) => {
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
+    let titleTag = doc.getElementsByTagName("title");
+    let metaDescTag = doc.querySelector("meta[name='description']");
+
+    if(titleTag.length){
+      res.title = titleTag[0].textContent;
+    }
+
+    if(metaDescTag){
+      res.description = metaDescTag.content;
+    }
 
     for(let meta of metaEls){
       filterAll(meta, "og:", res);
       filterAll(meta, "twitter:", res);
     }
-
+    
     res.favicon = findFavicon(linkEls);
 
     return res;
