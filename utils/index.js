@@ -4,7 +4,7 @@
  */
 
 let jsdom = require("jsdom");
-const {JSDOM} = jsdom;
+const {JSDOM, ResourceLoader} = jsdom;
 const virtualConsole = new jsdom.VirtualConsole();
 
 const OG_PROP = "property";
@@ -21,13 +21,15 @@ virtualConsole.sendTo(console, {omitJSDOMErrors: true});
  *
  * @returns {Promise.<{og: {}, twitter: {}}>}
  */
-exports.grabInfo = async (url) => {
+exports.grabInfo = async (url, userAgent) => {
   let og = {};
   let twitter = {};
   let defaults = {};
 
+  const resourceLoader = new ResourceLoader({ userAgent: userAgent});
+
   try{
-    let dom = await JSDOM.fromURL(url, {virtualConsole});
+    let dom = await JSDOM.fromURL(url, {virtualConsole, resources: resourceLoader});
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
@@ -64,11 +66,13 @@ exports.grabInfo = async (url) => {
  *
  * @returns {Promise.<*>}
  */
-exports.grabAll = async (url) => {
+exports.grabAll = async (url, userAgent) => {
   let res = {};
 
+  const resourceLoader = new ResourceLoader({ userAgent: userAgent});
+
   try {
-    let dom = await JSDOM.fromURL(url, {virtualConsole});
+    let dom = await JSDOM.fromURL(url, {virtualConsole, resources: resourceLoader});
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
