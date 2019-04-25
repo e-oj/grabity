@@ -26,7 +26,7 @@ exports.grabInfo = async (url, userAgent) => {
   let twitter = {};
   let defaults = {};
 
-  const resourceLoader = new jsdom.ResourceLoader({ userAgent: userAgent});
+  const resourceLoader = new jsdom.ResourceLoader({ userAgent: userAgent });
 
   try{
     let dom = await JSDOM.fromURL(url, {virtualConsole, resources: resourceLoader});
@@ -69,7 +69,7 @@ exports.grabInfo = async (url, userAgent) => {
 exports.grabAll = async (url, userAgent) => {
   let res = {};
 
-  const resourceLoader = new jsdom.ResourceLoader({ userAgent: userAgent});
+  const resourceLoader = new jsdom.ResourceLoader({ userAgent: userAgent });
 
   try {
     let dom = await JSDOM.fromURL(url, {virtualConsole, resources: resourceLoader});
