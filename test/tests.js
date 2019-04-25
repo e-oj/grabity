@@ -15,7 +15,7 @@ let URL = `http://localhost:${PORT}/test`;
 describe("grabity", () => {
   describe("#grabIt", () => {
     it("should return title, description, image, and favicon", async () => {
-      let it = await grabity.grabIt(URL);
+      let it = await grabity.grabIt(URL, 'Agent/1.0');
 
       expect(it.title).to.equal(tags["og:title"]);
       expect(it.description).to.equal(tags["og:description"]);
@@ -26,7 +26,7 @@ describe("grabity", () => {
 
   describe("#grab", () => {
     it("should return all 'twitter:' and 'og:' tags, favicon, default title tag and meta description", async () => {
-      let it = await grabity.grab(URL);
+      let it = await grabity.grab(URL, 'Agent/1.0');
       let keys = Object.keys(tags);
 
       for(key of keys){
