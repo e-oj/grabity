@@ -28,7 +28,7 @@ exports.grabInfo = async (url, resourceOptions = {}) => {
 
   try{
     let resourceLoader = new jsdom.ResourceLoader(resourceOptions);
-    let dom = await JSDOM.fromURL(url, { resources: resourceLoader});
+    let dom = await JSDOM.fromURL(url, { resources: resourceLoader, ...virtualConsole });
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
