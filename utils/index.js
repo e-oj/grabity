@@ -21,13 +21,14 @@ virtualConsole.sendTo(console, {omitJSDOMErrors: true});
  *
  * @returns {Promise.<{og: {}, twitter: {}}>}
  */
-exports.grabInfo = async (url) => {
+exports.grabInfo = async (url, resourceOptions = {}) => {
   let og = {};
   let twitter = {};
   let defaults = {};
 
   try{
-    let dom = await JSDOM.fromURL(url, {virtualConsole});
+    let resourceLoader = new jsdom.ResourceLoader(resourceOptions);
+    let dom = await JSDOM.fromURL(url, { resources: resourceLoader, ...virtualConsole });
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
